@@ -1,5 +1,6 @@
 import { Controller, Get, Param, Post, Body} from '@nestjs/common';
 import { MessagesService } from './messages.service';
+import { Message } from './Message';
 
 
 @Controller('messages')
@@ -18,7 +19,7 @@ export class MessagesController {
     }
 
     @Post()
-    create(@Body() body:any) {
-        return this.messagesService.create(body)
+    create(@Body() message: Message) {
+        return this.messagesService.create(message)
     }
 }
