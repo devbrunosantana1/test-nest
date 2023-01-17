@@ -32,4 +32,13 @@ export class MessagesService {
         this.messages[index] = message;
         /* throw new Error('Method not implemented.'); */
     }
+
+    delete(id: number) {
+        const index = this.messages.findIndex((message) => message.id === id);
+        delete this.messages[index];
+
+        return true;
+
+        /* throw new Error('Method not implemented.'); */
+    }
 }
