@@ -36,9 +36,6 @@ export class MessagesService {
     delete(id: number) {
         const index = this.messages.findIndex((message) => message.id === id);
         delete this.messages[index];
-
-        return true;
-
         /* throw new Error('Method not implemented.'); */
     }
 }
