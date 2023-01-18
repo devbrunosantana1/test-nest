@@ -23,7 +23,7 @@ export class MessagesService {
         return this.messages;
     }
 
-    findById(id: number) {
+    async findById(id: number) {
         const message =  this.messages.find((msg) => msg.id === id);
 
         if(!message){
@@ -35,7 +35,7 @@ export class MessagesService {
         this.messages.push(message);
     }
 
-    update(id: number, message: Message) {
+    async update(id: number, message: Message) {
         const index = this.messages.findIndex((message) => message.id === id);
         this.messages[index] = message;
         /* throw new Error('Method not implemented.'); */

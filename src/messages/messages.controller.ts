@@ -15,8 +15,8 @@ export class MessagesController {
 
     @Get(':id')
     findById(@Param() params) {
-        return this.messagesService.findById(+params.id).catch( e => {
-            throw new NotFoundException("ID not found");
+        return this.messagesService.findById(+params.id).catch((e) => {
+            throw new NotFoundException(e.message);
             
         });
     }
@@ -28,7 +28,9 @@ export class MessagesController {
 
     @Put(':id')
     update(@Param() params, @Body() message: Message) {
-        return this.messagesService.update(+params.id, message);
+        return this.messagesService.update(+params.id, message).catch((e) => {
+            throw new NotFoundException(e.message);
+        });
     }
 
     @Delete(':id')
