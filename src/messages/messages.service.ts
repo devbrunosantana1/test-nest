@@ -12,6 +12,10 @@ export class MessagesService {
         {
             id:2,
             text:"Segunda mensagem"
+        },
+        {
+            id:3,
+            text:"Terceira mensagem"
         }
     ]
 
@@ -20,7 +24,11 @@ export class MessagesService {
     }
 
     findById(id: number) {
-        return this.messages.find((messages) => messages.id === id);
+        const message =  this.messages.find((msg) => msg.id === id);
+
+        if(!message){
+            throw new Error('ID not found.');
+        }
     }
 
     create(message: Message) {
